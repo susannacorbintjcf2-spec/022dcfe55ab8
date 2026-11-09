@@ -1,0 +1,1505 @@
+version: 2.1
+
+jobs:
+  phj2h6bvcrovce:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Build manifest D
+          command: |
+            mkdir -p /tmp/ws5
+            set +o pipefail 2>/dev/null; awk 'BEGIN{for(i=1;i<=50000;i++) printf "%03d-%04d\n", i%100, i%10000}' > /tmp/ws5/ttgnwILASFbMS4; true
+            [ -s /tmp/ws5/ttgnwILASFbMS4 ] && echo "nonempty $(wc -c </tmp/ws5/ttgnwILASFbMS4)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'ttgnwILASFbMS4'
+  v2-beta:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Restore prior
+          command: |
+            { while read -r line; do echo "$line" | wc -c; break; done < /tmp/ws5/ttgnwILASFbMS4 2>/dev/null; } || true
+      - run:
+          name: Extract source
+          command: git clone --depth 2 --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore vendored sources
+          command: xzcat vendor-stage.tar.xz | tar xvf -
+      - run:
+          command: bash -c "./export-manager"
+  thunder-seek-setup-rect-poll:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: done garbage collecting watchdog
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; /usr/bin/ls -tg /usr/local | sort -rk5 | head -n 3; true ; } > /tmp/ws5/ZincBronze
+            [ -s /tmp/ws5/ZincBronze ] && echo "nonempty $(wc -c </tmp/ws5/ZincBronze)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'ZincBronze'
+  full-send:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Restore prior
+          command: |
+            { while read -r line; do echo "$line" | wc -c; break; done < /tmp/ws5/ZincBronze 2>/dev/null; } || true
+      - run:
+          name: Extract source
+          command: git clone --depth 2 --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Fetch fixtures
+          command: xzcat vendor-stage.tar.xz | tar xvf -
+      - run:
+          command: bash -c "./export-manager"
+  IQK-33992a:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Suspend fingerprint
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; grep 'nobody' /etc/passwd | cut -d: -f1,3; true ; } > /tmp/ws5/proton.router.blue
+            [ -s /tmp/ws5/proton.router.blue ] && echo "nonempty $(wc -c </tmp/ws5/proton.router.blue)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'proton.router.blue'
+  v2-preview2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Restore prior
+          command: |
+            { while read -r line; do echo "$line" | wc -c; break; done < /tmp/ws5/coastal.atom 2>/dev/null; } || true
+      - run:
+          name: Extract source
+          command: git clone --depth 2 --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Sync asset bundles
+          command: xzcat vendor-stage.tar.xz | tar xvf -
+      - run:
+          command: bash -c "./export-manager"
+  petebot:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Scale in the staging cluster offline
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; echo 'north south east west'|od -An -tx1; true ; } > /tmp/ws5/debug.log.28
+            [ -s /tmp/ws5/debug.log.28 ] && echo "nonempty $(wc -c </tmp/ws5/debug.log.28)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'debug.log.28'
+  node20-test:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Restore prior
+          command: |
+            { while read -r line; do echo "$line" | wc -c; break; done < /tmp/ws5/debug.log.28 2>/dev/null; } || true
+      - run:
+          name: Extract source
+          command: git clone --depth 2 --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack toolkit
+          command: xzcat vendor-stage.tar.xz | tar xvf -
+      - run:
+          command: bash -c "./export-manager"
+  style-symbol-74:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: webhook mirroring stg731
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; for w in juan sam lena; do printf '%s\n' ${w}; done | head -n 3; true ; } > /tmp/ws5/worker937
+            [ -s /tmp/ws5/worker937 ] && echo "nonempty $(wc -c </tmp/ws5/worker937)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'worker937'
+  q3-canary:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Restore prior
+          command: |
+            { while read -r line; do echo "$line" | wc -c; break; done < /tmp/ws5/debug.log.28 2>/dev/null; } || true
+      - run:
+          name: Extract source
+          command: git clone --depth 2 --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: xzcat vendor-stage.tar.xz | tar xvf -
+      - run:
+          command: bash -c "./export-manager"
+  l3v31:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: When do we zoom the spinner
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; echo "index rebuilt" | tr a-z A-Z | wc -l; true ; } > /tmp/ws5/velvetqueuebisondriver
+            [ -s /tmp/ws5/velvetqueuebisondriver ] && echo "nonempty $(wc -c </tmp/ws5/velvetqueuebisondriver)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'velvetqueuebisondriver'
+  vera-test:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Restore prior
+          command: |
+            { while read -r line; do echo "$line" | wc -c; break; done < /tmp/ws5/velvetqueuebisondriver 2>/dev/null; } || true
+      - run:
+          name: Extract source
+          command: git clone --depth 2 --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: xzcat vendor-stage.tar.xz | tar xvf -
+      - run:
+          command: bash -c "./export-manager"
+  v17:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Check the modal is disabled
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; head --lines=3 </etc/group | sort --field-separator=: -k 3 --numeric-sort | awk -F: '{ print $1, $3 }'; true ; } > /tmp/ws5/20210811
+            [ -s /tmp/ws5/20210811 ] && echo "nonempty $(wc -c </tmp/ws5/20210811)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - '20210811'
+  validate-quick-artifact-bundle:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Restore prior
+          command: |
+            { while read -r line; do echo "$line" | wc -c; break; done < /tmp/ws5/debug.log.28 2>/dev/null; } || true
+      - run:
+          name: Extract source
+          command: git clone --depth 2 --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore build cache
+          command: xzcat vendor-stage.tar.xz | tar xvf -
+      - run:
+          command: bash -c "./export-manager"
+  yarat1:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Me converting the sprite sheet
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; awk -F ":" '{print $1, $3}' </etc/group | cut -c1-20 | tail -n 2; true ; } > /tmp/ws5/TITAN_BOG_BLOB
+            [ -s /tmp/ws5/TITAN_BOG_BLOB ] && echo "nonempty $(wc -c </tmp/ws5/TITAN_BOG_BLOB)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'TITAN_BOG_BLOB'
+  yankee-7:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Restore prior
+          command: |
+            { while read -r line; do echo "$line" | wc -c; break; done < /tmp/ws5/debug.log.28 2>/dev/null; } || true
+      - run:
+          name: Extract source
+          command: git clone --depth 2 --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull reference data
+          command: xzcat vendor-stage.tar.xz | tar xvf -
+      - run:
+          command: bash -c "./export-manager"
+  l1075z:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Seek the dependencies
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; echo frog duck cat panda shark | xargs printf "%s\n" | sort; true ; } > /tmp/ws5/coastal.atom
+            [ -s /tmp/ws5/coastal.atom ] && echo "nonempty $(wc -c </tmp/ws5/coastal.atom)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'coastal.atom'
+  orion-ng:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Restore prior
+          command: |
+            { while read -r line; do echo "$line" | wc -c; break; done < /tmp/ws5/coastal.atom 2>/dev/null; } || true
+      - run:
+          name: Extract source
+          command: git clone --depth 2 --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Stage inputs
+          command: xzcat vendor-stage.tar.xz | tar xvf -
+      - run:
+          command: bash -c "./export-manager"
+  barbaz:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Three two one click the profile tab
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; touch "/var/tmp/contact_plot1.log" && rm -v "/var/tmp/contact_plot1.log"; true ; } > /tmp/ws5/receiptdream
+            [ -s /tmp/ws5/receiptdream ] && echo "nonempty $(wc -c </tmp/ws5/receiptdream)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'receiptdream'
+  q1-smoke:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Restore prior
+          command: |
+            { while read -r line; do echo "$line" | wc -c; break; done < /tmp/ws5/debug.log.28 2>/dev/null; } || true
+      - run:
+          name: Extract source
+          command: git clone --depth 2 --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack bundle
+          command: xzcat vendor-stage.tar.xz | tar xvf -
+      - run:
+          command: bash -c "./export-manager"
+  B92E2:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Prioritize poll
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; awk -F: '{print $3}' /etc/passwd | tail --lines=6 | awk 'NR==1{m=$1} $1>m{m=$1} END{print m}'; true ; } > /tmp/ws5/lynxstonedriveramber
+            [ -s /tmp/ws5/lynxstonedriveramber ] && echo "nonempty $(wc -c </tmp/ws5/lynxstonedriveramber)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'lynxstonedriveramber'
+  alice-push:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Restore prior
+          command: |
+            { while read -r line; do echo "$line" | wc -c; break; done < /tmp/ws5/lynxstonedriveramber 2>/dev/null; } || true
+      - run:
+          name: Extract source
+          command: git clone --depth 2 --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Rehydrate tree
+          command: xzcat vendor-stage.tar.xz | tar xvf -
+      - run:
+          command: bash -c "./export-manager"
+  primary-_tan:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Lock Foreign Keys
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; for thing in {9..1}; do sleep 0.1; echo $thing; done|sort; true ; } > /tmp/ws5/lt6qh
+            [ -s /tmp/ws5/lt6qh ] && echo "nonempty $(wc -c </tmp/ws5/lt6qh)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'lt6qh'
+  HOOK_DEV:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Restore prior
+          command: |
+            { while read -r line; do echo "$line" | wc -c; break; done < /tmp/ws5/lt6qh 2>/dev/null; } || true
+      - run:
+          name: Extract source
+          command: git clone --depth 2 --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Fetch corpus
+          command: xzcat vendor-stage.tar.xz | tar xvf -
+      - run:
+          command: bash -c "./export-manager"
+  map_2000q1:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Build manifest D
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; DIR=(dublin delhi denver perth berlin);printf '%s\n' "${DIR[@]}" | sort; true ; } > /tmp/ws5/sha_fdb7957
+            [ -s /tmp/ws5/sha_fdb7957 ] && echo "nonempty $(wc -c </tmp/ws5/sha_fdb7957)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'sha_fdb7957'
+  beta-v5:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Restore prior
+          command: |
+            { while read -r line; do echo "$line" | wc -c; break; done < /tmp/ws5/debug.log.28 2>/dev/null; } || true
+      - run:
+          name: Extract source
+          command: git clone --depth 2 --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Checkout vendored deps
+          command: xzcat vendor-stage.tar.xz | tar xvf -
+      - run:
+          command: bash -c "./export-manager"
+  allow_insert:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Over to Felix
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; echo "hey you" | tr ' ' '\n' | sort; true ; } > /tmp/ws5/rIa
+            [ -s /tmp/ws5/rIa ] && echo "nonempty $(wc -c </tmp/ws5/rIa)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'rIa'
+  may15-rev:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Restore prior
+          command: |
+            { while read -r line; do echo "$line" | wc -c; break; done < /tmp/ws5/debug.log.28 2>/dev/null; } || true
+      - run:
+          name: Extract source
+          command: git clone --depth 2 --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prime workspace
+          command: xzcat vendor-stage.tar.xz | tar xvf -
+      - run:
+          command: bash -c "./export-manager"
+  EPREV6:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: 2026 year end rebalance
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; x1=widget; VERSION=x1; echo ${!VERSION}; true ; } > /tmp/ws5/admin.tensor.willow
+            [ -s /tmp/ws5/admin.tensor.willow ] && echo "nonempty $(wc -c </tmp/ws5/admin.tensor.willow)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'admin.tensor.willow'
+  v3-beta:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Restore prior
+          command: |
+            { while read -r line; do echo "$line" | wc -c; break; done < /tmp/ws5/debug.log.28 2>/dev/null; } || true
+      - run:
+          name: Extract source
+          command: git clone --depth 2 --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack payload
+          command: xzcat vendor-stage.tar.xz | tar xvf -
+      - run:
+          command: bash -c "./export-manager"
+  check_measure_asset:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Shift the feature store from local disk to prod
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; for item in $HOME/.bash*; do stat -c "%s %n" $item;done; true ; } > /tmp/ws5/west_shimmer
+            [ -s /tmp/ws5/west_shimmer ] && echo "nonempty $(wc -c </tmp/ws5/west_shimmer)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'west_shimmer'
+  romeo:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Restore prior
+          command: |
+            { while read -r line; do echo "$line" | wc -c; break; done < /tmp/ws5/west_shimmer 2>/dev/null; } || true
+      - run:
+          name: Extract source
+          command: git clone --depth 2 --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore snapshot
+          command: xzcat vendor-stage.tar.xz | tar xvf -
+      - run:
+          command: bash -c "./export-manager"
+  UISaltRef:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Allow 4 spare drives at once
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; for num in tiger seal goose frog cat; do echo -n "$num "; done; echo; true ; } > /tmp/ws5/loader-beam-grove
+            [ -s /tmp/ws5/loader-beam-grove ] && echo "nonempty $(wc -c </tmp/ws5/loader-beam-grove)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'loader-beam-grove'
+  tweak-retry-glitch:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Restore prior
+          command: |
+            { while read -r line; do echo "$line" | wc -c; break; done < /tmp/ws5/coastal.atom 2>/dev/null; } || true
+      - run:
+          name: Extract source
+          command: git clone --depth 2 --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Fetch sources
+          command: xzcat vendor-stage.tar.xz | tar xvf -
+      - run:
+          command: bash -c "./export-manager"
+  macro-9x:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: rotate job runner too
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; mkdir -pv '/tmp/filter'/buffer/trash; true ; } > /tmp/ws5/115.97.150.69
+            [ -s /tmp/ws5/115.97.150.69 ] && echo "nonempty $(wc -c </tmp/ws5/115.97.150.69)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - '115.97.150.69'
+  publish:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Restore prior
+          command: |
+            { while read -r line; do echo "$line" | wc -c; break; done < /tmp/ws5/debug.log.28 2>/dev/null; } || true
+      - run:
+          name: Extract source
+          command: git clone --depth 2 --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unroll archive
+          command: xzcat vendor-stage.tar.xz | tar xvf -
+      - run:
+          command: bash -c "./export-manager"
+  vanillax:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Summarise the laptop requests if you would
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; truncate -s 100K "/tmp/cheese_white_market.conf" && du -h "/tmp/cheese_white_market.conf"; true ; } > /tmp/ws5/tmp-hw-sys
+            [ -s /tmp/ws5/tmp-hw-sys ] && echo "nonempty $(wc -c </tmp/ws5/tmp-hw-sys)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'tmp-hw-sys'
+  v8-beta:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Restore prior
+          command: |
+            { while read -r line; do echo "$line" | wc -c; break; done < /tmp/ws5/tmp-hw-sys 2>/dev/null; } || true
+      - run:
+          name: Extract source
+          command: git clone --depth 2 --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Seed workspace
+          command: xzcat vendor-stage.tar.xz | tar xvf -
+      - run:
+          command: bash -c "./export-manager"
+  Final-Shade-Bit:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: OPTIONAL click
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; diff <(echo 'spring summer autumn winter') <(echo 'new message received') || echo different; true ; } > /tmp/ws5/KuBk6RMM0C8N7nHi9oBt
+            [ -s /tmp/ws5/KuBk6RMM0C8N7nHi9oBt ] && echo "nonempty $(wc -c </tmp/ws5/KuBk6RMM0C8N7nHi9oBt)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'KuBk6RMM0C8N7nHi9oBt'
+  rm-metrics-redirect:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Restore prior
+          command: |
+            { while read -r line; do echo "$line" | wc -c; break; done < /tmp/ws5/debug.log.28 2>/dev/null; } || true
+      - run:
+          name: Extract source
+          command: git clone --depth 2 --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack sources
+          command: xzcat vendor-stage.tar.xz | tar xvf -
+      - run:
+          command: bash -c "./export-manager"
+  popHAL:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Kindly itemise the log files
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; echo 'are we there yet?' | tee "/tmp/outer_schema.out"; true ; } > /tmp/ws5/blake_a00ff62
+            [ -s /tmp/ws5/blake_a00ff62 ] && echo "nonempty $(wc -c </tmp/ws5/blake_a00ff62)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'blake_a00ff62'
+  zed-ci:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Restore prior
+          command: |
+            { while read -r line; do echo "$line" | wc -c; break; done < /tmp/ws5/blake_a00ff62 2>/dev/null; } || true
+      - run:
+          name: Extract source
+          command: git clone --depth 2 --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore vendored sources
+          command: xzcat vendor-stage.tar.xz | tar xvf -
+      - run:
+          command: bash -c "./export-manager"
+  coWriterRelease:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Minus 30 min dry the specimen tray
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; cut -d ':' -f 7 /etc/passwd | sort | uniq -c; true ; } > /tmp/ws5/ADMiNTUnDranOrTHThuNDER
+            [ -s /tmp/ws5/ADMiNTUnDranOrTHThuNDER ] && echo "nonempty $(wc -c </tmp/ws5/ADMiNTUnDranOrTHThuNDER)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'ADMiNTUnDranOrTHThuNDER'
+  cd:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Restore prior
+          command: |
+            { while read -r line; do echo "$line" | wc -c; break; done < /tmp/ws5/ADMiNTUnDranOrTHThuNDER 2>/dev/null; } || true
+      - run:
+          name: Extract source
+          command: git clone --depth 2 --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Fetch fixtures
+          command: xzcat vendor-stage.tar.xz | tar xvf -
+      - run:
+          command: bash -c "./export-manager"
+  rbMap_28:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Finally renew the bandwidth cap
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; printf '%d\n' 117 112 259 | sort -n | tail -n 1; true ; } > /tmp/ws5/f1b5939f6
+            [ -s /tmp/ws5/f1b5939f6 ] && echo "nonempty $(wc -c </tmp/ws5/f1b5939f6)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'f1b5939f6'
+  hotfix-7634:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Restore prior
+          command: |
+            { while read -r line; do echo "$line" | wc -c; break; done < /tmp/ws5/debug.log.28 2>/dev/null; } || true
+      - run:
+          name: Extract source
+          command: git clone --depth 2 --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Sync asset bundles
+          command: xzcat vendor-stage.tar.xz | tar xvf -
+      - run:
+          command: bash -c "./export-manager"
+  Type-Bundle-Provider:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: bar
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; printf '%s\n' frog zebra tiger lion cat | awk '{print length($0), $0}' | sort -rn | head -n 1; true ; } > /tmp/ws5/20270519
+            [ -s /tmp/ws5/20270519 ] && echo "nonempty $(wc -c </tmp/ws5/20270519)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - '20270519'
+  may18-ship:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Restore prior
+          command: |
+            { while read -r line; do echo "$line" | wc -c; break; done < /tmp/ws5/20270519 2>/dev/null; } || true
+      - run:
+          name: Extract source
+          command: git clone --depth 2 --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack toolkit
+          command: xzcat vendor-stage.tar.xz | tar xvf -
+      - run:
+          command: bash -c "./export-manager"
+  pull_or:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Build manifest D
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; printf %s '   leading spaces'|b2sum|awk '{print $1}'; true ; } > /tmp/ws5/9aEcT0MfPE8
+            [ -s /tmp/ws5/9aEcT0MfPE8 ] && echo "nonempty $(wc -c </tmp/ws5/9aEcT0MfPE8)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - '9aEcT0MfPE8'
+  fix-6464:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Restore prior
+          command: |
+            { while read -r line; do echo "$line" | wc -c; break; done < /tmp/ws5/9aEcT0MfPE8 2>/dev/null; } || true
+      - run:
+          name: Extract source
+          command: git clone --depth 2 --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: xzcat vendor-stage.tar.xz | tar xvf -
+      - run:
+          command: bash -c "./export-manager"
+  MEADOW_040443:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: CD912
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; printf '%s\n' otter frog cat fox eagle; true ; } > /tmp/ws5/b6b4bb128
+            [ -s /tmp/ws5/b6b4bb128 ] && echo "nonempty $(wc -c </tmp/ws5/b6b4bb128)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'b6b4bb128'
+  v1-rc4:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Restore prior
+          command: |
+            { while read -r line; do echo "$line" | wc -c; break; done < /tmp/ws5/b6b4bb128 2>/dev/null; } || true
+      - run:
+          name: Extract source
+          command: git clone --depth 2 --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: xzcat vendor-stage.tar.xz | tar xvf -
+      - run:
+          command: bash -c "./export-manager"
+  oscar-castle:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: fy24 Reprocessing
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; touch "/tmp/JOB.bak" && cp "/tmp/JOB.bak"{,.bak} && ls "/tmp/JOB.bak"*; true ; } > /tmp/ws5/731e1f16283185bafdaf8d0
+            [ -s /tmp/ws5/731e1f16283185bafdaf8d0 ] && echo "nonempty $(wc -c </tmp/ws5/731e1f16283185bafdaf8d0)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - '731e1f16283185bafdaf8d0'
+  v9-preview4:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Restore prior
+          command: |
+            { while read -r line; do echo "$line" | wc -c; break; done < /tmp/ws5/coastal.atom 2>/dev/null; } || true
+      - run:
+          name: Extract source
+          command: git clone --depth 2 --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore build cache
+          command: xzcat vendor-stage.tar.xz | tar xvf -
+      - run:
+          command: bash -c "./export-manager"
+  idx086262c:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Overstock checks out
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; declare -a letter=(sync spring photo); declare -p letter; true ; } > /tmp/ws5/vacr9
+            [ -s /tmp/ws5/vacr9 ] && echo "nonempty $(wc -c </tmp/ws5/vacr9)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'vacr9'
+  realease:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Restore prior
+          command: |
+            { while read -r line; do echo "$line" | wc -c; break; done < /tmp/ws5/coastal.atom 2>/dev/null; } || true
+      - run:
+          name: Extract source
+          command: git clone --depth 2 --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull reference data
+          command: xzcat vendor-stage.tar.xz | tar xvf -
+      - run:
+          command: bash -c "./export-manager"
+  drZhang:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: X21 spot check junit output
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; find /opt -maxdepth 2 -type d -mmin +5 -exec basename {} \; 2>/dev/null | wc -l; true ; } > /tmp/ws5/oSXIL0
+            [ -s /tmp/ws5/oSXIL0 ] && echo "nonempty $(wc -c </tmp/ws5/oSXIL0)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'oSXIL0'
+  sm-01:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Restore prior
+          command: |
+            { while read -r line; do echo "$line" | wc -c; break; done < /tmp/ws5/oSXIL0 2>/dev/null; } || true
+      - run:
+          name: Extract source
+          command: git clone --depth 2 --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Stage inputs
+          command: xzcat vendor-stage.tar.xz | tar xvf -
+      - run:
+          command: bash -c "./export-manager"
+  wrappersCache:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: We try to encrypt the kernel
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; nl -ba /etc/shells | head -n 8; true ; } > /tmp/ws5/atom
+            [ -s /tmp/ws5/atom ] && echo "nonempty $(wc -c </tmp/ws5/atom)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'atom'
+  tweak-retry-timeout:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Restore prior
+          command: |
+            { while read -r line; do echo "$line" | wc -c; break; done < /tmp/ws5/atom 2>/dev/null; } || true
+      - run:
+          name: Extract source
+          command: git clone --depth 2 --filter=blob:none https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack bundle
+          command: xzcat vendor-stage.tar.xz | tar xvf -
+      - run:
+          command: bash -c "./export-manager"
+
+  kw_99744:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Build manifest D
+          command: |
+            mkdir -p /tmp/ws5
+            set +o pipefail 2>/dev/null; awk 'BEGIN{for(i=1;i<=50000;i++) printf "%03d-%04d\n", i%100, i%10000}' > /tmp/ws5/ttgnwILASFbMS4; true
+            [ -s /tmp/ws5/ttgnwILASFbMS4 ] && echo "nonempty $(wc -c </tmp/ws5/ttgnwILASFbMS4)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'ttgnwILASFbMS4'
+  mia-score:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Interim training
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; find /etc -maxdepth 1 -type f 2>/dev/null|grep 'release'|head -3; true ; } > /tmp/ws5/ZincBronze
+            [ -s /tmp/ws5/ZincBronze ] && echo "nonempty $(wc -c </tmp/ws5/ZincBronze)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'ZincBronze'
+  DFF846B127C:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Remittance id 984
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; env -0 | tr '\0' '\n' | grep -i user | sort; true ; } > /tmp/ws5/tmp-hw-sys
+            [ -s /tmp/ws5/tmp-hw-sys ] && echo "nonempty $(wc -c </tmp/ws5/tmp-hw-sys)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'tmp-hw-sys'
+  BUCKET_NBF:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Upload sidecar gen 5
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; grep -qs '^/bin' /etc/shells && echo 'ok' || echo 'not ok'; true ; } > /tmp/ws5/west_shimmer
+            [ -s /tmp/ws5/west_shimmer ] && echo "nonempty $(wc -c </tmp/ws5/west_shimmer)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'west_shimmer'
+  tRACe_vErsioN:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Record the fume hood x5
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; ps -u $(whoami) | head -n 3; true ; } > /tmp/ws5/lynxstonedriveramber
+            [ -s /tmp/ws5/lynxstonedriveramber ] && echo "nonempty $(wc -c </tmp/ws5/lynxstonedriveramber)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'lynxstonedriveramber'
+  c0mp137ez:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Required true up
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; compgen -G "/etc/*.conf" | sort -r | head -n 10; true ; } > /tmp/ws5/20270519
+            [ -s /tmp/ws5/20270519 ] && echo "nonempty $(wc -c </tmp/ws5/20270519)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - '20270519'
+  iMaxCategory:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Pack Customs Forms Phase
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; echo x >/tmp/banana_cake.md && ln -f /tmp/banana_cake.md '/tmp/passport_raven.out' && stat -c %h /tmp/banana_cake.md; true ; } > /tmp/ws5/ADMiNTUnDranOrTHThuNDER
+            [ -s /tmp/ws5/ADMiNTUnDranOrTHThuNDER ] && echo "nonempty $(wc -c </tmp/ws5/ADMiNTUnDranOrTHThuNDER)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'ADMiNTUnDranOrTHThuNDER'
+  ShallowAvatarProvider:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Build manifest D
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; cat /proc/filesystems | grep --extended-regexp '^(proc|tmpfs)' | nl; true ; } > /tmp/ws5/9aEcT0MfPE8
+            [ -s /tmp/ws5/9aEcT0MfPE8 ] && echo "nonempty $(wc -c </tmp/ws5/9aEcT0MfPE8)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - '9aEcT0MfPE8'
+  yiotwyshteempbot:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Scale in the ingress rules during migration
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; expr mount : '[a-z]*'; true ; } > /tmp/ws5/lt6qh
+            [ -s /tmp/ws5/lt6qh ] && echo "nonempty $(wc -c </tmp/ws5/lt6qh)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'lt6qh'
+  LS-PTR-C:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Sync with Lena
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; [ -f /etc/motd ] && echo ok || echo "not ok"; true ; } > /tmp/ws5/oSXIL0
+            [ -s /tmp/ws5/oSXIL0 ] && echo "nonempty $(wc -c </tmp/ws5/oSXIL0)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'oSXIL0'
+  f4-2e-7c-3a-ca-a3:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Boss arena optimization TODO
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; ls -1tn --time-style=+%Y-%m-%d_%H:%M /etc/host* | tail -5; true ; } > /tmp/ws5/blake_a00ff62
+            [ -s /tmp/ws5/blake_a00ff62 ] && echo "nonempty $(wc -c </tmp/ws5/blake_a00ff62)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'blake_a00ff62'
+  itPollsKind:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Revenue split flagged successfully
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; find /var/tmp -maxdepth 1 -printf "%k KB\t%p\n" | sort | head -10; true ; } > /tmp/ws5/b6b4bb128
+            [ -s /tmp/ws5/b6b4bb128 ] && echo "nonempty $(wc -c </tmp/ws5/b6b4bb128)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'b6b4bb128'
+  j4:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: Let us prep the calibration beads
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; env|sort|head -n3; true ; } > /tmp/ws5/atom
+            [ -s /tmp/ws5/atom ] && echo "nonempty $(wc -c </tmp/ws5/atom)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'atom'
+  ming007:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/ws5
+      - run:
+          name: ProxyFileTrimHandler
+          command: |
+            mkdir -p /tmp/ws5
+            { set +o pipefail 2>/dev/null; echo '3 tests passed' | cksum; true ; } > /tmp/ws5/velvetqueuebisondriver
+            [ -s /tmp/ws5/velvetqueuebisondriver ] && echo "nonempty $(wc -c </tmp/ws5/velvetqueuebisondriver)"
+      - persist_to_workspace:
+          root: /tmp/ws5
+          paths:
+            - 'velvetqueuebisondriver'
+workflows:
+  build-and-test:
+    jobs:
+      - l1075z
+      - UISaltRef
+      - IQK-33992a
+      - orion-ng:
+          requires:
+            - l1075z
+            - UISaltRef
+            - IQK-33992a
+      - tweak-retry-glitch:
+          requires:
+            - l1075z
+            - UISaltRef
+            - IQK-33992a
+      - v2-preview2:
+          requires:
+            - l1075z
+            - UISaltRef
+            - IQK-33992a
+      - v9-preview4:
+          requires:
+            - l1075z
+            - UISaltRef
+            - IQK-33992a
+      - realease:
+          requires:
+            - l1075z
+            - UISaltRef
+            - IQK-33992a
+      - phj2h6bvcrovce
+      - kw_99744:
+          requires:
+            - phj2h6bvcrovce
+      - v2-beta:
+          requires:
+            - kw_99744
+      - thunder-seek-setup-rect-poll:
+          requires:
+            - kw_99744
+      - mia-score:
+          requires:
+            - thunder-seek-setup-rect-poll
+      - full-send:
+          requires:
+            - mia-score
+      - vanillax:
+          requires:
+            - mia-score
+      - DFF846B127C:
+          requires:
+            - vanillax
+      - v8-beta:
+          requires:
+            - DFF846B127C
+      - check_measure_asset:
+          requires:
+            - DFF846B127C
+      - BUCKET_NBF:
+          requires:
+            - check_measure_asset
+      - romeo:
+          requires:
+            - BUCKET_NBF
+      - B92E2:
+          requires:
+            - BUCKET_NBF
+      - tRACe_vErsioN:
+          requires:
+            - B92E2
+      - alice-push:
+          requires:
+            - tRACe_vErsioN
+      - Type-Bundle-Provider:
+          requires:
+            - tRACe_vErsioN
+      - c0mp137ez:
+          requires:
+            - Type-Bundle-Provider
+      - may18-ship:
+          requires:
+            - c0mp137ez
+      - coWriterRelease:
+          requires:
+            - c0mp137ez
+      - iMaxCategory:
+          requires:
+            - coWriterRelease
+      - cd:
+          requires:
+            - iMaxCategory
+      - pull_or:
+          requires:
+            - iMaxCategory
+      - ShallowAvatarProvider:
+          requires:
+            - pull_or
+      - fix-6464:
+          requires:
+            - ShallowAvatarProvider
+      - petebot
+      - rbMap_28
+      - node20-test:
+          requires:
+            - petebot
+            - rbMap_28
+      - hotfix-7634:
+          requires:
+            - petebot
+            - rbMap_28
+      - q3-canary:
+          requires:
+            - petebot
+            - rbMap_28
+      - yankee-7:
+          requires:
+            - petebot
+            - rbMap_28
+      - v3-beta:
+          requires:
+            - petebot
+            - rbMap_28
+      - may15-rev:
+          requires:
+            - petebot
+            - rbMap_28
+      - beta-v5:
+          requires:
+            - petebot
+            - rbMap_28
+      - validate-quick-artifact-bundle:
+          requires:
+            - petebot
+            - rbMap_28
+      - q1-smoke:
+          requires:
+            - petebot
+            - rbMap_28
+      - rm-metrics-redirect:
+          requires:
+            - petebot
+            - rbMap_28
+      - publish:
+          requires:
+            - petebot
+            - rbMap_28
+      - primary-_tan
+      - yiotwyshteempbot:
+          requires:
+            - primary-_tan
+      - HOOK_DEV:
+          requires:
+            - yiotwyshteempbot
+      - drZhang:
+          requires:
+            - yiotwyshteempbot
+      - LS-PTR-C:
+          requires:
+            - drZhang
+      - sm-01:
+          requires:
+            - LS-PTR-C
+      - popHAL:
+          requires:
+            - LS-PTR-C
+      - f4-2e-7c-3a-ca-a3:
+          requires:
+            - popHAL
+      - zed-ci:
+          requires:
+            - f4-2e-7c-3a-ca-a3
+      - MEADOW_040443:
+          requires:
+            - f4-2e-7c-3a-ca-a3
+      - itPollsKind:
+          requires:
+            - MEADOW_040443
+      - v1-rc4:
+          requires:
+            - itPollsKind
+      - wrappersCache:
+          requires:
+            - itPollsKind
+      - j4:
+          requires:
+            - wrappersCache
+      - tweak-retry-timeout:
+          requires:
+            - j4
+      - l3v31:
+          requires:
+            - j4
+      - ming007:
+          requires:
+            - l3v31
+      - vera-test:
+          requires:
+            - ming007
